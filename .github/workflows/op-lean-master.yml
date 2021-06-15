@@ -13,11 +13,11 @@ name: Lean's OpenWrt
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: true
-        default: 'false'
+#     inputs:
+#       ssh:
+#         description: 'SSH connection to Actions'
+#         required: true
+#         default: 'false'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -71,7 +71,11 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
     
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: |
+        df -hT $PWD
+        cd openwrt
+        ls
+        ./scripts/feeds update -a
 
     
     - name: Install feeds
