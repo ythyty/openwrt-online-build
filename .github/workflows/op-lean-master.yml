@@ -37,7 +37,7 @@ env:
 jobs:
   build:
     runs-on: Ubuntu-18.04
-    name: 编译 lede-openwrt-rm-ac2100
+    name: 编译 lede-openwrt-mi-ac2100
     
     steps:
     - name: Checkout
